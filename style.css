@@ -1,0 +1,620 @@
+/* 
+Caleb Luh
+11/30/2025
+CIS 4004 - Project 3
+*/
+
+/* Global Styling*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+:root {
+    /** Base colors */
+    --clr-dark-a0: #000000;
+    --clr-light-a0: #ffffff;
+
+    /** Theme primary colors */
+    --clr-primary-a0: #f88158;
+    --clr-primary-a10: #fb906a;
+    --clr-primary-a20: #fe9e7b;
+    --clr-primary-a30: #ffac8d;
+    --clr-primary-a40: #ffbaa0;
+    --clr-primary-a50: #ffc8b2;
+
+    /** Theme surface colors */
+    --clr-surface-a0: #000000;
+    --clr-surface-a10: #1e1e1e;
+    --clr-surface-a20: #353535;
+    --clr-surface-a30: #4e4e4e;
+    --clr-surface-a40: #696969;
+    --clr-surface-a50: #858585;
+
+    /** Theme tonal surface colors */
+    --clr-surface-tonal-a0: #1d130e;
+    --clr-surface-tonal-a10: #322825;
+    --clr-surface-tonal-a20: #483f3c;
+    --clr-surface-tonal-a30: #605855;
+    --clr-surface-tonal-a40: #78716f;
+    --clr-surface-tonal-a50: #928c8a;
+
+    /** Success colors */
+    --clr-success-a0: #22946e;
+    --clr-success-a10: #47d5a6;
+    --clr-success-a20: #9ae8ce;
+
+    /** Warning colors */
+    --clr-warning-a0: #a87a2a;
+    --clr-warning-a10: #d7ac61;
+    --clr-warning-a20: #ecd7b2;
+
+    /** Danger colors */
+    --clr-danger-a0: #9c2121;
+    --clr-danger-a10: #d94a4a;
+    --clr-danger-a20: #eb9e9e;
+
+    /** Info colors */
+    --clr-info-a0: #21498a;
+    --clr-info-a10: #4077d1;
+    --clr-info-a20: #92b2e5;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--clr-surface-a0);
+    color: var(--clr-light-a0);
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--clr-surface-a10);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--clr-light-a0);
+    margin-top: 25px;
+    font-weight: 700;
+}
+
+h1 {
+    border-bottom: 2px solid var(--clr-surface-a20);
+    padding-bottom: 10px;
+}
+
+a {
+    color: var(--clr-primary-a10);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+a:hover {
+    color: var(--clr-primary-a0);
+    text-decoration: underline;
+}
+
+/* Navigation */
+.nav-links {
+    margin-bottom: 20px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--clr-surface-a20);
+}
+
+.nav-links a {
+    margin-right: 20px;
+    font-weight: bold;
+    color: var(--clr-light-a0);
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+.nav-links a:hover {
+    color: var(--clr-primary-a0);
+    text-decoration: none;
+}
+
+/* Forms and Inputs */
+form {
+    background-color: var(--clr-surface-a10);
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid var(--clr-surface-a20);
+    border-radius: 8px;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: 700;
+    color: var(--clr-surface-a50);
+    text-transform: uppercase;
+    font-size: 0.8em;
+}
+
+input[type="text"], input[type="password"], input[type="date"], input[type="number"], select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    background-color: var(--clr-surface-a20);
+    border: 1px solid var(--clr-surface-a30);
+    color: var(--clr-light-a0);
+    border-radius: 4px;
+    transition: border-color 0.3s;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: var(--clr-primary-a0);
+    outline: none;
+}
+
+/* Buttons */
+button, .btn {
+    background-color: var(--clr-primary-a0);
+    color: var(--clr-surface-a0);
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 4px;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+button:hover, .btn:hover {
+    background-color: var(--clr-primary-a20);
+    transform: translateY(-1px);
+    text-decoration: none;
+}
+
+.btn-success {
+    background-color: var(--clr-success-a0);
+    color: white;
+}
+.btn-success:hover {
+    background-color: var(--clr-success-a10);
+}
+
+.btn-danger {
+    background-color: var(--clr-danger-a0);
+    color: white;
+}
+.btn-danger:hover {
+    background-color: var(--clr-danger-a10);
+}
+
+/* Tables (ESPN Style Dark) */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+thead tr {
+    background-color: var(--clr-surface-a10);
+    border-bottom: 1px solid var(--clr-surface-a30);
+}
+
+th {
+    text-align: left;
+    padding: 12px 10px;
+    color: var(--clr-surface-a50);
+    text-transform: uppercase;
+    font-weight: normal;
+    font-size: 0.85em;
+}
+
+td {
+    padding: 12px 10px;
+    border-bottom: 1px solid var(--clr-surface-a20);
+    color: var(--clr-light-a0);
+}
+
+tbody tr:hover {
+    background-color: var(--clr-surface-a20);
+}
+
+/* Messages */
+.message {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+.message.success {
+    background-color: rgba(34, 148, 110, 0.2);
+    border: 1px solid var(--clr-success-a0);
+    color: var(--clr-success-a10);
+}
+.message.error {
+    background-color: rgba(156, 33, 33, 0.2);
+    border: 1px solid var(--clr-danger-a0);
+    color: var(--clr-danger-a10);
+}
+
+/* Profile Page Specifics */
+.profile-header {
+    background-color: var(--clr-surface-a10);
+    border-bottom: 1px solid var(--clr-surface-a20);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.profile-img-container {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid var(--clr-surface-a20);
+    background: var(--clr-surface-a20);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-info h1 {
+    margin: 0;
+    font-size: 2.5em;
+    text-transform: uppercase;
+    font-family: 'Arial Black', sans-serif;
+    letter-spacing: -1px;
+    color: var(--clr-light-a0);
+}
+
+.profile-meta {
+    color: var(--clr-surface-a50);
+    font-size: 0.9em;
+    margin-top: 5px;
+    display: flex;
+    gap: 15px;
+}
+
+.profile-meta span {
+    display: inline-block;
+}
+
+.stats-grid {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.stat-card {
+    background: var(--clr-surface-a20);
+    border: 1px solid var(--clr-surface-a30);
+    border-radius: 4px;
+    padding: 15px;
+    text-align: center;
+    flex: 1;
+}
+
+.stat-value {
+    font-size: 2em;
+    font-weight: bold;
+    color: var(--clr-light-a0);
+}
+
+.stat-label {
+    font-size: 0.8em;
+    color: var(--clr-surface-a50);
+    text-transform: uppercase;
+}
+
+.bio-strip {
+    background: var(--clr-surface-a10);
+    padding: 10px 20px;
+    border-top: 1px solid var(--clr-surface-a20);
+    border-bottom: 1px solid var(--clr-surface-a20);
+    font-size: 0.9em;
+    display: flex;
+    gap: 40px;
+    color: var(--clr-light-a0);
+}
+
+.bio-item strong {
+    color: var(--clr-surface-a50);
+    font-size: 0.8em;
+    display: block;
+    margin-bottom: 2px;
+}
+
+/* Comparison Result Area */
+#compareResult {
+    margin-top: 12px;
+    max-width: 760px;
+    background: var(--clr-surface-a10);
+    border: 1px solid var(--clr-surface-a20);
+    padding: 12px;
+    color: var(--clr-light-a0);
+    display: none;
+}
+
+/* Helper Classes */
+.text-muted {
+    color: var(--clr-surface-a50);
+}
+
+/* User Provided ESPN Snippets (Adapted for Dark Theme) */
+.SplitsTable__Header .SplitsTable__Filters { padding-top: 8px; }
+.player-splits-table .Table__TBODY > .Table__TR.subgroup-headers {
+    background-color: var(--clr-surface-a20);
+    border-bottom: 1px solid var(--clr-surface-a30);
+}
+.player-splits-table .Table__TBODY > .Table__TR.subgroup-headers .Table__TD {
+    color: var(--clr-light-a0);
+    text-transform: uppercase;
+}
+
+/* ESPN Profile Specific Styles */
+.espn-header-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    background-color: var(--clr-surface-a10);
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--clr-surface-a20);
+    margin-bottom: 20px;
+}
+
+.espn-header-left {
+    flex: 2;
+    display: flex;
+    gap: 20px;
+    min-width: 300px;
+}
+
+.espn-header-right {
+    flex: 1;
+    min-width: 250px;
+    display: flex;
+    align-items: center;
+}
+
+.espn-player-img-wrapper {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: var(--clr-surface-a20);
+    border: 3px solid var(--clr-surface-a30);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.espn-player-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.espn-player-img-placeholder {
+    font-size: 2.5rem;
+    color: var(--clr-surface-a50);
+    font-weight: bold;
+}
+
+.espn-player-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.espn-player-name {
+    font-size: 2.5rem;
+    margin: 0 0 5px 0;
+    line-height: 1.1;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.espn-player-meta {
+    font-size: 1rem;
+    color: var(--clr-surface-a50);
+    margin-bottom: 15px;
+}
+
+.espn-player-meta .separator {
+    margin: 0 8px;
+    color: var(--clr-surface-a30);
+}
+
+.espn-player-bio-grid {
+    display: flex;
+    gap: 20px;
+}
+
+.bio-cell {
+    display: flex;
+    flex-direction: column;
+}
+
+.bio-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--clr-surface-a50);
+    margin-bottom: 2px;
+}
+
+.bio-value {
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.status-active {
+    color: var(--clr-success-a10);
+}
+
+/* Season Stats Box (Right Side) */
+.season-stats-box {
+    background-color: var(--clr-surface-a20);
+    border-radius: 6px;
+    padding: 15px;
+    width: 100%;
+}
+
+.season-stats-header {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    color: var(--clr-surface-a50);
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.season-stats-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.stat-item {
+    text-align: center;
+    flex: 1;
+    border-right: 1px solid var(--clr-surface-a30);
+}
+
+.stat-item:last-child {
+    border-right: none;
+}
+
+.stat-item .stat-label {
+    font-size: 0.75rem;
+    color: var(--clr-surface-a50);
+    margin-bottom: 2px;
+}
+
+.stat-item .stat-number {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--clr-light-a0);
+}
+
+/* Section Containers */
+.section-container {
+    margin-bottom: 30px;
+}
+
+.section-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px solid var(--clr-surface-a20);
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+}
+
+.section-title {
+    font-size: 1.2rem;
+    margin: 0;
+    text-transform: uppercase;
+    color: var(--clr-light-a0);
+}
+
+.see-all-link {
+    font-size: 0.85rem;
+    color: var(--clr-info-a10);
+    font-weight: 600;
+}
+
+/* ESPN Style Tables */
+.espn-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.espn-table thead th {
+    text-align: left;
+    padding: 10px;
+    background-color: var(--clr-surface-a20);
+    color: var(--clr-surface-a50);
+    font-weight: normal;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--clr-surface-a30);
+}
+
+.espn-table tbody td {
+    padding: 12px 10px;
+    border-bottom: 1px solid var(--clr-surface-a20);
+    color: var(--clr-light-a0);
+}
+
+.espn-table tbody tr:hover {
+    background-color: var(--clr-surface-a20);
+}
+
+.espn-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.result-win {
+    color: var(--clr-success-a10);
+    font-weight: bold;
+}
+
+.result-loss {
+    color: var(--clr-danger-a10);
+    font-weight: bold;
+}
+
+/* Buttons */
+.btn-espn-action {
+    background-color: var(--clr-info-a10);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-espn-action:hover {
+    background-color: var(--clr-info-a0);
+}
+
+.btn-espn-action:disabled {
+    background-color: var(--clr-surface-a30);
+    cursor: not-allowed;
+}
+
+/* Messages */
+.message {
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+
+.message.success {
+    background-color: rgba(34, 148, 110, 0.2);
+    border: 1px solid var(--clr-success-a0);
+    color: var(--clr-success-a20);
+}
+
+.message.error {
+    background-color: rgba(156, 33, 33, 0.2);
+    border: 1px solid var(--clr-danger-a0);
+    color: var(--clr-danger-a20);
+}
